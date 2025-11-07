@@ -1,11 +1,13 @@
 <?php
-
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/statuses', [StatusController::class, 'store'])->name('statuses.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
